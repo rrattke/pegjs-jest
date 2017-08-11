@@ -1,6 +1,6 @@
 {
   "name": "pegjs-jest",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A PEG.js transform for Jest",
   "main": "dist/index.js",
   "scripts": {

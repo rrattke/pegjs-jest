@@ -15,9 +15,18 @@ const getCacheKey = (
     .digest('hex');
 };
 
+const process = (
+  sourceText: string,
+  sourcePath: Path,
+  config: Config,
+  options?: TransformOptions,
+): string => {
+  return `module.exports = ${peg.generate(sourceText, {output: 'source'})}`;
+};
+
 const transformer: Transformer = {
   getCacheKey,
-  process: peg.generate,
+  process,
 };
 
 module.exports = transformer;
