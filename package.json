@@ -1,0 +1,43 @@
+{
+  "name": "pegjs-jest",
+  "version": "0.0.1",
+  "description": "A PEG.js transform for Jest",
+  "main": "dist/index.js",
+  "scripts": {
+    "flow": "flow",
+    "lint": "eslint src",
+    "build": "yarn transpile && yarn copy-packagejson && yarn copy-flow",
+    "transpile": "babel ./src --out-dir ./dist/",
+    "copy-packagejson": "cp package.json ./dist",
+    "copy-flow": "cd src && pax -wrs'/\\.js$/\\.js\\.flow/' *.js ../dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danwang/pegjs-jest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danwang/pegjs-jest/issues"
+  },
+  "homepage": "https://github.com/danwang/pegjs-jest#readme",
+  "dependencies": {
+    "babel-preset-flow": "^6.23.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.22.0",
+    "eslint": "^3.14.1",
+    "eslint-config-stripe": "^1.0.9",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.9.0",
+    "flow-bin": "^0.52.0",
+    "pegjs": "^0.10.0"
+  },
+  "peerDependencies": {
+    "pegjs": "^0.10.0"
+  }
+}
