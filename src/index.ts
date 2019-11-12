@@ -1,8 +1,8 @@
-import * as crypto from 'crypto';
+import * as crypto from "crypto";
 import * as path from "path";
 import * as fs from "fs";
-import { Config } from '@jest/types';
-import { CacheKeyOptions, TransformOptions } from '@jest/transform/build/types';
+import { Config } from "@jest/types";
+import { CacheKeyOptions, TransformOptions } from "@jest/transform/build/types";
 import { generate, OutputFormatAmdCommonjs, OutputFormatUmd, OutputFormatBare, OutputFormatGlobals } from 'pegjs';
 
 type OutputFormat = OutputFormatAmdCommonjs | OutputFormatUmd | OutputFormatGlobals | OutputFormatBare;
@@ -28,7 +28,7 @@ export const process = (
   return generate(sourceText, <any>config).toString();
 }
 
-function getConfigPath(sourcePath: string) {
+function getConfigPath(sourcePath: string): string {
   let { dir, name } = path.parse(sourcePath);
   let configPath = path.join(dir, name + ".config.json");
   return configPath;
@@ -42,5 +42,3 @@ function getConfig(configPath: string): OutputFormat {
   }
   return config;
 }
-
-
